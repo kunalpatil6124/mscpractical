@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="repo-owner" content="kunalpatil6124" />
+  <title>CCT Java Practicals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">mscpractical</a>
+      <nav class="nav">
+        <a href="index.html">CCT Home</a>
+        <a href="../ai-practical/index.html">AI Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section>
+      <h2 class="section-title">CCT Practical Codes — Java</h2>
+      <p class="lead">Edit these Java snippets directly in this file. Use the Copy button to copy code to clipboard..</p>
+
+      <!-- Program 1: Simple TCP server -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="program-title">1) Simple TCP Server</div>
+          <button class="copy-btn" data-copy-target="code-cct-java-1">Copy</button>
+        </div>
+        <pre><code id="code-cct-java-1">
+// Simple TCP server (Java)
+import java.io.*;
+import java.net.*;
+
+public class SimpleTCPServer {
+    public static void main(String[] args) throws IOException {
+        int port = 12345;
+        ServerSocket serverSocket = new ServerSocket(port);
+        System.out.println("Server listening on port " + port);
+        try (Socket client = serverSocket.accept()) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+            String line;
+            while ((line = in.readLine()) != null) {
+                System.out.println("Received: " + line);
+                out.println("Echo: " + line);
+            }
+        } finally {
+            serverSocket.close();
+        }
+    }
+}
+        </code></pre>
+      </div>
+
+      <!-- Program 2: Simple UDP example -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">2) UDP Sender (Java)</div>
+          <button class="copy-btn" data-copy-target="code-cct-java-2">Copy</button>
+        </div>
+        <pre><code id="code-cct-java-2">
+// UDP sender example (Java)
+import java.net.*;
+
+public class UDPSender {
+    public static void main(String[] args) throws Exception {
+        DatagramSocket socket = new DatagramSocket();
+        String msg = "Hello from Java UDP";
+        byte[] buf = msg.getBytes();
+        InetAddress address = InetAddress.getByName("127.0.0.1");
+        DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 9876);
+        socket.send(packet);
+        socket.close();
+    }
+}
+        </code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created for Practical Shortcut By Kunal Patil</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

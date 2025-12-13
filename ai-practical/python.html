@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="repo-owner" content="kunalpatil6124" />
+
+  <title>AI Python Practicals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">mscpractical</a>
+      <nav class="nav">
+        <a href="index.html">AI Home</a>
+        <a href="../cct-practical/index.html">CCT Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section>
+      <h2 class="section-title">AI Practical Codes — Python</h2>
+      <p class="lead">Edit these Python snippets directly in this file. Use the Copy button to copy code to clipboard.</p>
+
+      <!-- Program 1 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="program-title">1) Simple Tower Of Hanoi (Python)</div>
+          <button class="copy-btn" data-copy-target="code-py-1">Copy</button>
+        </div>
+        <pre><code id="code-py-1">
+def tower_of_hanoi(n, source, auxiliary, destination):
+    if n==1:
+        print("Move disk 1 from",source,"to",destination)
+        return
+    tower_of_hanoi(n-1,source,destination,auxiliary)
+    print("Move disk",n,"From",source,"to",destination)
+    tower_of_hanoi(n-1,auxiliary,source,destination)
+n=3
+tower_of_hanoi(n,'A','B','C')
+        </code></pre>
+      </div>
+
+      <!-- Program 2 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">2) Simple AI Chatbot </div>
+          <button class="copy-btn" data-copy-target="code-py-2">Copy</button>
+        </div>
+        <pre><code id="code-py-2">
+def chatbot():
+    print("Chatbot: Hello! type bye to exit")
+    while True:
+        user_input=input("You: ").lower()
+        if user_input=="hello":
+            print("Chatbot: hi there.")
+        elif user_input=="whats your name":
+            print("Chatbot: I am simple Ai chatbot.")
+        elif user_input=="bye":
+            print("Chatbot: thank you see you again.")
+            break
+        else:
+            print("Chatbot: Sorry cant understand you!")
+chatbot()
+        </code></pre>
+      </div>
+
+      <!-- Program 3 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">3) Simple DFS Python Program</div>
+          <button class="copy-btn" data-copy-target="code-py-3">Copy</button>
+        </div>
+        <pre><code id="code-py-3">
+# DFS using recursion
+
+def dfs(graph, node, visited):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+
+        for neighbour in graph[node]:
+            dfs(graph, neighbour, visited)
+
+
+# Graph representation using dictionary
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
+}
+
+visited = set()
+
+# DFS traversal starting from node A
+dfs(graph, 'A', visited)
+        </code></pre>
+      </div>
+<!-- Program 4 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">4) Simple BFS Python Program </div>
+          <button class="copy-btn" data-copy-target="code-py-4">Copy</button>
+        </div>
+        <pre><code id="code-py-4">
+def bfs(graph, start):
+    visited = []
+    queue = [start]
+
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            print(node, end=" ")
+            visited.append(node)
+
+            for n in graph[node]:
+                queue.append(n)
+
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D','E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
+}
+
+bfs(graph, 'A')
+        </code></pre>
+      </div>
+<!-- Program 5 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">5) Simple Water Jug Problem </div>
+          <button class="copy-btn" data-copy-target="code-py-5">Copy</button>
+        </div>
+        <pre><code id="code-py-5">
+A = 0
+B = 0
+
+print("Initial State:", A, B)
+
+A = 4
+print("Fill Jug A:", A, B)
+
+B = 3
+A = A - B
+print("Pour A to B:", A, B)
+
+B = 0
+print("Empty Jug B:", A, B)
+
+B = A
+A = 0
+print("Pour A to B:", A, B)
+
+A = 4
+print("Fill Jug A:", A, B)
+
+A = A - (3 - B)
+B = 3
+print("Final State:", A, B)
+        </code></pre>
+      </div>
+<!-- Program 6 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">6) Missionaries & Cannibals – Simple State Space Search </div>
+          <button class="copy-btn" data-copy-target="code-py-6">Copy</button>
+        </div>
+        <pre><code id="code-py-6">
+from collections import deque
+
+def valid(m, c):
+    return (m == 0 or m >= c) and (3-m == 0 or 3-m >= 3-c)
+
+def solve():
+    start = (3, 3, 0)   # (Missionaries, Cannibals, Boat)
+    goal = (0, 0, 1)
+
+    queue = deque([start])
+    visited = set()
+
+    while queue:
+        m, c, b = queue.popleft()
+
+        if (m, c, b) == goal:
+            print("Goal Reached")
+            return
+
+        if (m, c, b) in visited:
+            continue
+
+        visited.add((m, c, b))
+
+        for dm, dc in [(1,0),(2,0),(0,1),(0,2),(1,1)]:
+            if b == 0:
+                nm, nc, nb = m-dm, c-dc, 1
+            else:
+                nm, nc, nb = m+dm, c+dc, 0
+
+            if 0 <= nm <= 3 and 0 <= nc <= 3 and valid(nm, nc):
+                queue.append((nm, nc, nb))
+
+
+solve()
+        </code></pre>
+      </div>
+<!-- Program 7 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">7) Simple Tic Tac Toe using state space search </div>
+          <button class="copy-btn" data-copy-target="code-py-7">Copy</button>
+        </div>
+        <pre><code id="code-py-7">
+# Simple Tic Tac Toe using state space search
+
+board = [' ']*9
+
+def print_board():
+    print(board[0], '|', board[1], '|', board[2])
+    print('--+---+--')
+    print(board[3], '|', board[4], '|', board[5])
+    print('--+---+--')
+    print(board[6], '|', board[7], '|', board[8])
+
+def check_win(player):
+    wins = [(0,1,2),(3,4,5),(6,7,8),
+            (0,3,6),(1,4,7),(2,5,8),
+            (0,4,8),(2,4,6)]
+    for w in wins:
+        if board[w[0]] == board[w[1]] == board[w[2]] == player:
+            return True
+    return False
+
+def minimax(is_ai):
+    if check_win('O'):
+        return 1
+    if check_win('X'):
+        return -1
+    if ' ' not in board:
+        return 0
+
+    best = -2 if is_ai else 2
+    for i in range(9):
+        if board[i] == ' ':
+            board[i] = 'O' if is_ai else 'X'
+            score = minimax(not is_ai)
+            board[i] = ' '
+            best = max(best, score) if is_ai else min(best, score)
+    return best
+
+def best_move():
+    move = -1
+    best = -2
+    for i in range(9):
+        if board[i] == ' ':
+            board[i] = 'O'
+            score = minimax(False)
+            board[i] = ' '
+            if score > best:
+                best = score
+                move = i
+    board[move] = 'O'
+
+
+# Demo run
+print_board()
+best_move()
+print("\nAI Move:")
+print_board()
+        </code></pre>
+      </div>
+<!-- Program 8 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">8) A* Search Algorithm </div>
+          <button class="copy-btn" data-copy-target="code-py-8">Copy</button>
+        </div>
+        <pre><code id="code-py-8">
+def a_star(graph, h, start, goal):
+    open_list = [start]
+    g = {start: 0}
+    parent = {start: None}
+
+    while open_list:
+        # Select node with minimum f = g + h
+        current = min(open_list, key=lambda x: g[x] + h[x])
+
+        if current == goal:
+            path = []
+            while current:
+                path.append(current)
+                current = parent[current]
+            print("Path:", path[::-1])
+            return
+
+        open_list.remove(current)
+
+        for neighbour, cost in graph[current]:
+            new_g = g[current] + cost
+
+            if neighbour not in g or new_g < g[neighbour]:
+                g[neighbour] = new_g
+                parent[neighbour] = current
+                open_list.append(neighbour)
+
+
+# Graph (node : [(neighbour, cost)])
+graph = {
+    'A': [('B',1), ('C',3)],
+    'B': [('D',1), ('E',4)],
+    'C': [('F',5)],
+    'D': [],
+    'E': [('F',1)],
+    'F': []
+}
+
+# Heuristic values
+h = {'A':7, 'B':6, 'C':4, 'D':3, 'E':1, 'F':0}
+
+a_star(graph, h, 'A', 'F')
+        </code></pre>
+      </div>
+<!-- Program 9 -->
+      <div class="code-card" style="margin-top:16px">
+        <div class="code-header">
+          <div class="program-title">9) Travelling Salesman Problem </div>
+          <button class="copy-btn" data-copy-target="code-py-9">Copy</button>
+        </div>
+        <pre><code id="code-py-9">
+import itertools
+
+def tsp(dist):
+    cities = range(len(dist))
+    min_cost = float('inf')
+    best_path = None
+
+    for path in itertools.permutations(cities):
+        cost = 0
+        for i in range(len(path) - 1):
+            cost += dist[path[i]][path[i+1]]
+        cost += dist[path[-1]][path[0]]   # return to start
+
+        if cost < min_cost:
+            min_cost = cost
+            best_path = path
+
+    print("Best Path:", best_path)
+    print("Minimum Cost:", min_cost)
+
+
+# Distance matrix
+dist = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+tsp(dist)
+        </code></pre>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Created for Practical Shortcut By Kunal Patil</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

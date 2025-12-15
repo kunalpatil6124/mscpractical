@@ -67,24 +67,83 @@ public class HelloController {
       <!-- Program 2: Simple UDP example -->
       <div class="code-card" style="margin-top:16px">
         <div class="code-header">
-          <div class="program-title">2) UDP Sender (Java)</div>
+          <div class="program-title">2) Implement a Restful spring boot application (e.g. Student, employee, dept etc.).</div>
           <button class="copy-btn" data-copy-target="code-cct-java-2">Copy</button>
         </div>
         <pre><code id="code-cct-java-2">
-// UDP sender example (Java)
-import java.net.*;
+1) StudentrestApplication.java    - ( This One is ByDefault )
+	package com.example.studentrest;
 
-public class UDPSender {
-    public static void main(String[] args) throws Exception {
-        DatagramSocket socket = new DatagramSocket();
-        String msg = "Hello from Java UDP";
-        byte[] buf = msg.getBytes();
-        InetAddress address = InetAddress.getByName("127.0.0.1");
-        DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 9876);
-        socket.send(packet);
-        socket.close();
-    }
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StudentrestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StudentrestApplication.class, args);
+	}
+
 }
+2) Student.java - ( This class file we have to create with the same name Student )
+	package com.example.studentrest;
+
+public class Student {
+	private int id;
+	private String name;
+	private String dept;
+	
+	public Student(int id,String name,String dept) {
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+	}
+	public int getid() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getDept() {
+		return dept;
+	}
+
+}
+
+3) StudentController.java ( This class file we have to create with the same name StudentController )
+	package com.example.studentrest;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class StudentController {
+	private List<Student>students = new ArrayList<>();
+	@GetMapping("/students")
+	public List<Student>getStudents(){
+		return students;
+	}
+@PostMapping("/students")
+public String addStudent(@RequestBody Student student) {
+	students.add(student);
+	return "Student added successfully";
+}
+}
+
+
+4) The Process to post the input on the postman :
+		step 1 : Post>body>raw>JSON
+		step 2 : add this in the box :-
+										{
+    										"id":1,
+										    "name":"Kunal",
+										    "dept":"Computer Science"
+										}
+		step 3 : Now click on send
+		step 4 : Now use Get and click on send to see the output.
         </code></pre>
       </div>
     </section>

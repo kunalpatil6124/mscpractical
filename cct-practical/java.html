@@ -111,7 +111,7 @@ public class Student {
 }
 
 3) StudentController.java ( This class file we have to create with the same name StudentController )
-	package com.example.studentrest;
+package com.example.studentrestt;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -122,7 +122,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentController {
 	private List<Student>students = new ArrayList<>();
-	@GetMapping("/students")
+    @GetMapping("/students")
 	public List<Student>getStudents(){
 		return students;
 	}
@@ -132,7 +132,6 @@ public String addStudent(@RequestBody Student student) {
 	return "Student added successfully";
 }
 }
-
 
 4) The Process to post the input on the postman :
 		step 1 : Post>body>raw>JSON

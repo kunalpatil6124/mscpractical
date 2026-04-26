@@ -4,34 +4,63 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="repo-owner" content="kunalpatil6124" />
-  <title>DWDM Weka Practicals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <title>DWDM Practicals | Student Hub</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Site stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html">mscpractical</a>
+  <!-- Floating Header -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <i data-lucide="shield-check"></i>
+        MSCPRACTICAL
+      </a>
       <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="../DWDM/index.html">DWDM Home</a>
+        <a href="index.html">DWDM Hub</a>
+        <a href="../ai-practical/index.html">AI Hub</a>
+        <a href="#" onclick="logout(); return false;" class="logout-btn">
+          <i data-lucide="log-out"></i>
+          Logout
+        </a>
       </nav>
     </div>
   </header>
 
-  <main class="container main-content">
-    <section>
-      <h2 class="section-title">DWDM Weka Practicals</h2>
-      <p class="lead">Edit these Weka snippets directly in this file. Use the Copy button to copy code to clipboard..</p>
+  <main class="container">
+    <section class="reveal" style="animation-delay: 0.1s">
+      <div class="hero">
+        <div class="badge">
+          <i data-lucide="layers"></i>
+          Data Analyst
+        </div>
+        <h1 class="section-title">DWDM Weka Repository</h1>
+        <p class="lead">Data Warehousing & Data Mining datasets and analytical models for Weka environments.</p>
+      </div>
 
-      <!-- Program 1: Simple TCP server -->
+      <!-- Program 1 -->
       <div class="code-card">
         <div class="code-header">
-          <div class="program-title">1) Demonstrate the data preprocessing dataset using: student.arff</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-1">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">student_preprocessing.arff</div>
+          <button class="copy-btn" data-copy-target="code-dwdm-1">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-dwdm-weka-1">
-@relation student
+        <pre><code id="code-dwdm-1">@relation student
 @attribute age{30,30-40,40}
 @attribute income{low,medium,high} 
 @attribute student{yes,no} 
@@ -51,19 +80,24 @@
 40,low,yes,fair,yes
 40,low,yes,excellent,no
 30-40,low,yes,excellent,yes
-%
-
-        </code></pre>
+%</code></pre>
       </div>
 
-      <!-- Program 2: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
+      <!-- Program 2 -->
+      <div class="code-card">
         <div class="code-header">
-          <div class="program-title">2) Demonstration of association rule process on dataset test.arff using apriori algorithm</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-2">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">apriori_association.arff</div>
+          <button class="copy-btn" data-copy-target="code-dwdm-2">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-dwdm-weka-2">
-@relation test
+        <pre><code id="code-dwdm-2">@relation test
 @attribute admissionyear{2005,2006,2007,2008,2009,2010}
 @attribute course{cse,mech,it,ece}
 @data
@@ -80,22 +114,25 @@
 2008, cse
 2009, it
 2009, ece
-%
-
-
-        </code></pre>
+%</code></pre>
       </div>
 
-      <!-- Program 3: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
+      <!-- Program 3 -->
+      <div class="code-card">
         <div class="code-header">
-          <div class="program-title">3) Demonstration of association rule process on dataset employee.arff using j48 algorithm</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-3">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">j48_classification.arff</div>
+          <button class="copy-btn" data-copy-target="code-dwdm-3">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-dwdm-weka-3">
-
-@relation emp
-@attribute age{30,40,30-40,<40} 
+        <pre><code id="code-dwdm-3">@relation emp
+@attribute age{30,40,30-40,&lt;40} 
 @attribute income{high,medium,low} 
 @attribute credit_rate{fair,excellent}
 @attribute buy_comp{yes,no} 
@@ -106,58 +143,31 @@
 40,high,excellent,yes,no 
 30-40,medium,fair,no,yes 
 30,low,fair,no,yes
-<40,medium,fair,yes,no 
+&lt;40,medium,fair,yes,no 
 40,high,excellent,no,no
 30-40,medium,fair,no,yes
-<40,medium,fair,yes,yes
-<40,medium,fair,yes,yes 
+&lt;40,medium,fair,yes,yes
+&lt;40,medium,fair,yes,yes 
 40,high,excellent,no,no 
 30-40,medium,fair,no,no
-%
-
-            </code></pre>
+%</code></pre>
       </div>
 
-
-      <!-- Program 4: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
+      <!-- Program 4 -->
+      <div class="code-card">
         <div class="code-header">
-          <div class="program-title">4) Demonstration of association rule process on dataset test.arff using apriori algorithm</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-4">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">naive_bayes_classification.arff</div>
+          <button class="copy-btn" data-copy-target="code-dwdm-5">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-dwdm-weka-4">
-@relation student 
-@attribute age{30,30-40,40}
-@attribute income{low,medium,high} 
-@attribute student{yes,no} 
-@attribute credit-rating{fair,excellent} 
-@attribute buyspc{yes,no}
-@data
-%
-30,high,no,fair,no
-30,high,no,excellent,no 
-30-40,high,no,fair,yes
-40,medium,no,fair,yes
-30-40,low,yes,excellent,yes 
-30,high,no,fair,no
-30,high,no,excellent,no 
-30-40,high,no,fair,yes
-40,medium,no,fair,yes 
-40,low,yes,fair,yes
-40,low,yes,excellent,no
-30-40,low,yes,excellent,yes
-%
-            </code></pre>
-      </div>
-
-      <!-- Program 5: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
-        <div class="code-header">
-          <div class="program-title">5) Demonstration of classification rule process on dataset employee.arff using naïve bayes algorithm</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-5">Copy</button>
-        </div>
-        <pre><code id="code-dwdm-weka-5">
-@relation employee
+        <pre><code id="code-dwdm-5">@relation employee
 @attribute age{30,25,35,28,40}
 @attribute eduction{highschool,bachelors,masters,phd} 
 @attribute job{manager,supervisor,clerk,analyst} 
@@ -171,24 +181,25 @@
 35,masters,clerk,45000,finance,high
 28,phd,analyst,40000,IT,low 
 40,phd,clerk,60000,HR,high
-%
-            </code></pre>
+%</code></pre>
       </div>
 
-
-      <!-- Program 6: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
+      <!-- Program 5 -->
+      <div class="code-card">
         <div class="code-header">
-          <div class="program-title">6) Demonstration of Clustering rule process on our own dataset Using Simple K-Means</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-6">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">simple_kmeans_clustering.arff</div>
+          <button class="copy-btn" data-copy-target="code-dwdm-6">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-dwdm-weka-6">
-@relation Item 
-@attribute I1{0,1} 
-@attribute I2{0,1} 
-@attribute I3{0,1} 
-@attribute I4{0,1} 
-@attribute I5{0,1} 
+        <pre><code id="code-dwdm-6">@relation Item 
+@attribute I1{0,1} @attribute I2{0,1} @attribute I3{0,1} @attribute I4{0,1} @attribute I5{0,1} 
 @data
 % 
 0,1,1,1,0
@@ -200,59 +211,7 @@
 1,0,1,0,1
 0,1,1,1,0
 1,0,0,0,1
-%
-            </code></pre>
-      </div>
-
-
-      <!-- Program 7: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
-        <div class="code-header">
-          <div class="program-title">7) Demonstration of Clustering in Weka[k-Means]</div>
-          <button class="copy-btn" data-copy-target="code-dwdm-weka-7">Copy</button>
-        </div>
-        <pre><code id="code-dwdm-weka-7">
-=== Run information ===
-
-Scheme:	weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 - periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 2 -A
-"weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10 Relation:	weather.symbolic
-Instances:	14
-Attributes: 5
-outlook
-temperature humidity
-windy play
-Test mode:	evaluate on training data
-
-
-=== Clustering model (full training set) ===
-
-
-kMeans
-======
-
-Number of iterations: 4
-Within cluster sum of squared errors: 26.0 Initial starting points (random):
-Cluster 0: rainy,mild,normal,FALSE,yes
-Cluster 1: overcast,cool,normal,TRUE,yes
-
-Missing values globally replaced with mean/mode Final cluster centroids:
-
-Cluster#
-Attribute	Full Data	0	1
-(14.0)	(10.0)	(4.0)
-==============================================
-outlook		sunny		sunny overcast temperature				mild			mild			cool humidity			high		 high	normal windy	FALSE	FALSE		TRUE
-play	yes	yes	yes
-
-
-
-
-Time taken to build model (full training data) : 0 seconds
-]
-=== Model and evaluation on training set === Clustered Instances
-0	10 ( 71%)
-1	4 ( 29%) 
-            </code></pre>
+%</code></pre>
       </div>
 
     </section>
@@ -260,10 +219,12 @@ Time taken to build model (full training data) : 0 seconds
 
   <footer class="site-footer">
     <div class="container">
-      <p>Created for Practical Practice By Kunal Patil</p>
+      <span class="footer-logo">MSCPRACTICAL</span>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
     </div>
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

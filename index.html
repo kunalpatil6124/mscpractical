@@ -3,71 +3,121 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!-- Set repository owner and repo name so the script can automatically set the site title.
-       Edit these meta tags if you host this site for a different repo/owner. -->
   <meta name="repo-owner" content="kunalpatil6124" />
 
-  <title>MSC-Practical ZBPC</title>
+  <title>MSCPRACTICAL | Student Hub</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Site stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Small inline comment: script.js sets title, handles header behavior and copy actions.
-       It is included at the end of body for faster paint. -->
 </head>
 <body>
-  <!-- Sticky header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Home">mscpractical</a>
+  <!-- Floating Header -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <i data-lucide="shield-check"></i>
+        MSCPRACTICAL
+      </a>
       <nav class="nav">
+        <a href="#" onclick="logout(); return false;" class="logout-btn">
+          <i data-lucide="log-out"></i>
+          Logout
+        </a>
       </nav>
     </div>
   </header>
 
   <!-- Main content -->
-  <main class="container main-content">
-    <!-- Welcome / description -->
-    <section class="hero">
-      <h1 id="site-title">MSC-Practical ZBPC</h1>
-      <p class="lead">A small, static site to store and access Java & Python practical codes. Easy to copy and paste !</p>
+  <main class="container">
+    <!-- Hero Evolution -->
+    <section class="hero reveal" style="animation-delay: 0.1s">
+      <div class="badge">
+        <i data-lucide="sparkles"></i>
+        V2.0 Master Edition
+      </div>
+      <h1 id="site-title">Student Practical Hub</h1>
+      <p class="lead">The ultimate repository for Java, Python, and Data Mining practicals. Designed for speed, precision, and excellence.</p>
+      
+      <!-- Stats / Quick Info -->
+      <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px; color: var(--text-dim);">
+        <div style="text-align: center;">
+          <h4 style="color: var(--text-bright); font-size: 1.5rem;">3</h4>
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Categories</span>
+        </div>
+        <div style="text-align: center;">
+          <h4 style="color: var(--text-bright); font-size: 1.5rem;">20+</h4>
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Programs</span>
+        </div>
+        <div style="text-align: center;">
+          <h4 style="color: var(--text-bright); font-size: 1.5rem;">99%</h4>
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Success Rate</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Cards for choices -->
+    <!-- Cards Section -->
     <section class="cards">
       <!-- AI Practical -->
-      <a class="card" href="ai-practical/index.html" title="AI Practical Codes">
-        <div class="card-icon" aria-hidden="true">🤖</div>
-        <h3>AI Practical Code</h3>
-        <p>Python programs for AI-related practical assignments.</p>
+      <a class="card reveal" href="ai-practical/index.html" style="animation-delay: 0.2s">
+        <div class="card-icon-box">
+          <i data-lucide="brain-circuit"></i>
+        </div>
+        <div class="badge" style="background: rgba(139, 92, 246, 0.1); color: var(--accent-secondary); border-color: rgba(139, 92, 246, 0.2);">
+          Python Core
+        </div>
+        <h3>Artificial Intelligence</h3>
+        <p>Implementation of DFS, BFS, A*, and State Space Search algorithms in Python.</p>
       </a>
 
       <!-- CCT Practical -->
-      <a class="card" href="cct-practical/index.html" title="CCT Practical Codes">
-        <div class="card-icon" aria-hidden="true">💻</div>
-        <h3>CCT Practical Code</h3>
-        <p>Java programs for CCT practicals.</p>
+      <a class="card reveal" href="cct-practical/index.html" style="animation-delay: 0.3s">
+        <div class="card-icon-box">
+          <i data-lucide="cloud-cog"></i>
+        </div>
+        <div class="badge">Java / Spring</div>
+        <h3>Cloud Technologies</h3>
+        <p>Advanced Java implementations and Spring Boot architectural patterns for cloud computing.</p>
       </a>
+
       <!-- DWDM Practical -->
-      <a class="card" href="DWDM/index.html" title="DWDM Practical Codes">
-        <div class="card-icon" aria-hidden="true">📊</div>
-        <h3>DWDM Practical Code</h3>
-        <p>Weka programs for DWDM practicals.</p>
+      <a class="card reveal" href="DWDM/index.html" style="animation-delay: 0.4s">
+        <div class="card-icon-box">
+          <i data-lucide="bar-chart-3"></i>
+        </div>
+        <div class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.2);">
+          Weka Analysis
+        </div>
+        <h3>Data Mining</h3>
+        <p>DWDM analytics datasets, classification, and clustering models for Weka environments.</p>
       </a>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer Evolution -->
   <footer class="site-footer">
     <div class="container">
-      <p>Created for Practical Practice By Kunal Patil</p>
+      <span class="footer-logo">MSCPRACTICAL</span>
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Security</a>
+        <a href="#">Resources</a>
+        <a href="#">Contact</a>
+      </div>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
     </div>
   </footer>
 
   <!-- Shared scripts -->
   <script src="js/script.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
 </body>
 </html>

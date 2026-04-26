@@ -5,42 +5,69 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="repo-owner" content="kunalpatil6124" />
 
-  <title>AI Practical Codes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>AI Practical Codes | Student Hub</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Site stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html">MSC-Practical ZBPC</a>
+  <!-- Floating Header -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <i data-lucide="shield-check"></i>
+        MSCPRACTICAL
+      </a>
       <nav class="nav">
         <a href="../index.html">Home</a>
         <a href="../cct-practical/index.html">CCT Practical</a>
+        <a href="#" onclick="logout(); return false;" class="logout-btn">
+          <i data-lucide="log-out"></i>
+          Logout
+        </a>
       </nav>
     </div>
   </header>
 
-  <main class="container main-content">
-    <section class="hero">
-      <h1 class="section-title">AI Practical Codes</h1>
-      <p class="lead">Python programs for AI practical.</p>
+  <main class="container">
+    <section class="hero reveal" style="animation-delay: 0.1s">
+      <div class="badge">
+        <i data-lucide="brain"></i>
+        AI & Algorithms
+      </div>
+      <h1 class="section-title">Artificial Intelligence</h1>
+      <p class="lead">Exploring the foundations of machine intelligence through Python implementations and algorithmic research.</p>
     </section>
 
     <!-- Options for Java / Python -->
-    <section class="option-grid" aria-label="AI practical language options">
+    <section class="option-grid reveal" style="animation-delay: 0.2s">
       <a class="option" href="python.html">
-        <h4>Python Practical Codes</h4>
-        <p>Python scripts and small programs used for AI practicals.</p>
+        <div class="card-icon-box">
+          <i data-lucide="terminal"></i>
+        </div>
+        <div class="badge" style="background: rgba(139, 92, 246, 0.1); color: var(--accent-secondary); border-color: rgba(139, 92, 246, 0.2);">
+          Python 3.x
+        </div>
+        <h4>Python Implementation</h4>
+        <p>A collection of core AI algorithms including search, optimization, and logic problems.</p>
       </a>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Created for Practical Practice By Kunal Patil</p>
+      <span class="footer-logo">MSCPRACTICAL</span>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
     </div>
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

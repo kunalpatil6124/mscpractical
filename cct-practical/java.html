@@ -4,156 +4,156 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="repo-owner" content="kunalpatil6124" />
-  <title>CCT Java Practicals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <title>Java Practicals | Student Hub</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Site stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html">mscpractical</a>
+  <!-- Floating Header -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <i data-lucide="shield-check"></i>
+        MSCPRACTICAL
+      </a>
       <nav class="nav">
-        <a href="index.html">CCT Home</a>
-        <a href="../ai-practical/index.html">AI Home</a>
+        <a href="index.html">CCT Hub</a>
+        <a href="../ai-practical/index.html">AI Hub</a>
+        <a href="#" onclick="logout(); return false;" class="logout-btn">
+          <i data-lucide="log-out"></i>
+          Logout
+        </a>
       </nav>
     </div>
   </header>
 
-  <main class="container main-content">
-    <section>
-      <h2 class="section-title">CCT Practical Codes — Java</h2>
-      <p class="lead">Edit these Java snippets directly in this file. Use the Copy button to copy code to clipboard..</p>
+  <main class="container">
+    <section class="reveal" style="animation-delay: 0.1s">
+      <div class="hero">
+        <div class="badge">
+          <i data-lucide="server"></i>
+          Backend Architect
+        </div>
+        <h1 class="section-title">CCT Java Repository</h1>
+        <p class="lead">Enterprise Java and Spring Boot implementations for Cloud Computing Technologies.</p>
+      </div>
 
-      <!-- Program 1: Simple TCP server -->
+      <!-- Program 1 -->
       <div class="code-card">
         <div class="code-header">
-          <div class="program-title">1) Demonstrate bootstrapping a simple spring-boot Project.</div>
-          <button class="copy-btn" data-copy-target="code-cct-java-1">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">SpringBootstrapApplication.java</div>
+          <button class="copy-btn" data-copy-target="code-java-1">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-cct-java-1">
-1) SimplespringbootApplication.java 
+        <pre><code id="code-java-1">// 1) SimplespringbootApplication.java 
 package com.example.simplespringboot;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SimplespringbootApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SimplespringbootApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SimplespringbootApplication.class, args);
+    }
 }
 
-2) HelloController.java
+// 2) HelloController.java
 package com.example.simplespringboot;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-
 public class HelloController {
-	
-	@GetMapping("/hello")
-	public String hello() {
-		return "Spring Boot Application Bootstraped Successfully";
-	}
-
-}
-        </code></pre>
+    @GetMapping("/hello")
+    public String hello() {
+        return "Spring Boot Application Bootstrapped Successfully";
+    }
+}</code></pre>
       </div>
 
-      <!-- Program 2: Simple UDP example -->
-      <div class="code-card" style="margin-top:16px">
+      <!-- Program 2 -->
+      <div class="code-card">
         <div class="code-header">
-          <div class="program-title">2) Implement a Restful spring boot application (e.g. Student, employee, dept etc.).</div>
-          <button class="copy-btn" data-copy-target="code-cct-java-2">Copy</button>
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">StudentRestController.java</div>
+          <button class="copy-btn" data-copy-target="code-java-2">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
         </div>
-        <pre><code id="code-cct-java-2">
-1) StudentrestApplication.java    - ( This One is ByDefault )
-	package com.example.studentrest;
-
+        <pre><code id="code-java-2">// 1) StudentrestApplication.java
+package com.example.studentrest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StudentrestApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(StudentrestApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(StudentrestApplication.class, args);
+    }
 }
-2) Student.java - ( This class file we have to create with the same name Student )
-	package com.example.studentrest;
 
+// 2) Student.java
+package com.example.studentrest;
 public class Student {
-	private int id;
-	private String name;
-	private String dept;
-	
-	public Student(int id,String name,String dept) {
-		this.id = id;
-		this.name = name;
-		this.dept = dept;
-	}
-	public int getId() {
-		return id;
-	}
-	public String getName() {
-		return name;
-	}
-	public String getDept() {
-		return dept;
-	}
-
+    private int id;
+    private String name, dept;
+    public Student(int id,String name,String dept) {
+        this.id = id; this.name = name; this.dept = dept;
+    }
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public String getDept() { return dept; }
 }
 
-3) StudentController.java ( This class file we have to create with the same name StudentController )
+// 3) StudentController.java
 package com.example.studentrest;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StudentController {
-	private List<Student>students = new ArrayList<>();
+    private List&lt;Student&gt; students = new ArrayList&lt;&gt;();
     @GetMapping("/students")
-	public List<Student>getStudents(){
-		return students;
-	}
-@PostMapping("/students")
-public String addStudent(@RequestBody Student student) {
-	students.add(student);
-	return "Student added successfully";
-}
-}
-
-4) The Process to post the input on the postman :
-		step 1 : Post>body>raw>JSON
-		step 2 : add this in the box :-
-										{
-    										"id":1,
-										    "name":"Kunal",
-										    "dept":"Computer Science"
-										}
-		step 3 : Now click on send
-		step 4 : Now use Get and click on send to see the output.
-        </code></pre>
+    public List&lt;Student&gt; getStudents(){ return students; }
+    @PostMapping("/students")
+    public String addStudent(@RequestBody Student student) {
+        students.add(student); return "Student added successfully";
+    }
+}</code></pre>
       </div>
+
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>Created for Practical Practice By Kunal Patil</p>
+      <span class="footer-logo">MSCPRACTICAL</span>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
     </div>
   </footer>
 
   <script src="../js/script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

@@ -1,9 +1,43 @@
 /* Shared JS for the static practicals site.
-   - Sets document.title to the GitHub repository name (tries GitHub API then falls back)
+   - Handles authentication check
+   - Sets document.title to the GitHub repository name
    - Adds copy-to-clipboard for code blocks
    - Adds small navigation helpers and smooth scroll
-   - All functions are simple and well-commented for beginners
 */
+
+/* ========== Authentication Check ========== */
+(function() {
+    const AUTH_KEY = 'msc_auth_status';
+    const currentPage = window.location.pathname.split('/').pop();
+    const isAuthPage = currentPage === 'auth.html' || currentPage === 'login.html';
+    const isAuthenticated = sessionStorage.getItem(AUTH_KEY) === 'true';
+
+    if (!isAuthPage && !isAuthenticated) {
+        // Find relative path to root for auth.html
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        // If we are in a subdirectory (like ai-practical), we need to go up
+        // The project structure is root/subdir/file.html
+        // So if segments contains any of the known subdirs, go up.
+        const knownSubDirs = ['ai-practical', 'cct-practical', 'DWDM'];
+        const isInSubDir = pathSegments.some(seg => knownSubDirs.includes(seg));
+        const prefix = isInSubDir ? '../' : '';
+        
+        window.location.href = prefix + 'auth.html';
+    }
+})();
+
+/**
+ * Log out the user
+ */
+function logout() {
+    sessionStorage.removeItem('msc_auth_status');
+    // Find relative path to root for auth.html
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const knownSubDirs = ['ai-practical', 'cct-practical', 'DWDM'];
+    const isInSubDir = pathSegments.some(seg => knownSubDirs.includes(seg));
+    const prefix = isInSubDir ? '../' : '';
+    window.location.href = prefix + 'auth.html';
+}
 
 /* ========== Configuration & helpers ========== */
 

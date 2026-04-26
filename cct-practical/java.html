@@ -60,30 +60,39 @@
             Copy
           </button>
         </div>
-        <pre><code id="code-java-1">// 1) SimplespringbootApplication.java 
+        <pre><code id="code-java-1">
+// 1) SimplespringbootApplication.java 
+
 package com.example.simplespringboot;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SimplespringbootApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(SimplespringbootApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(SimplespringbootApplication.class, args);
+	}
+
 }
 
 // 2) HelloController.java
+
 package com.example.simplespringboot;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-    @GetMapping("/hello")
-    public String hello() {
-        return "Spring Boot Application Bootstrapped Successfully";
-    }
-}</code></pre>
+
+	@GetMapping("/hello")
+	public String hello() {
+		return "Spring Boot Application Bootstrapped Successfully";
+	}
+}
+        </code></pre>
       </div>
 
       <!-- Program 2 -->
@@ -100,47 +109,83 @@ public class HelloController {
             Copy
           </button>
         </div>
-        <pre><code id="code-java-2">// 1) StudentrestApplication.java
+        <pre><code id="code-java-2">
+// 1) StudentrestApplication.java
+
 package com.example.studentrest;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StudentrestApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(StudentrestApplication.class, args);
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(StudentrestApplication.class, args);
+	}
+
 }
 
 // 2) Student.java
+
 package com.example.studentrest;
+
 public class Student {
-    private int id;
-    private String name, dept;
-    public Student(int id,String name,String dept) {
-        this.id = id; this.name = name; this.dept = dept;
-    }
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public String getDept() { return dept; }
+	private int id;
+	private String name;
+	private String dept;
+
+	public Student(int id, String name, String dept) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDept() {
+		return dept;
+	}
+
 }
 
 // 3) StudentController.java
+
 package com.example.studentrest;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.web.bind.annotation.*;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StudentController {
-    private List&lt;Student&gt; students = new ArrayList&lt;&gt;();
-    @GetMapping("/students")
-    public List&lt;Student&gt; getStudents(){ return students; }
-    @PostMapping("/students")
-    public String addStudent(@RequestBody Student student) {
-        students.add(student); return "Student added successfully";
-    }
-}</code></pre>
+
+	private List<Student> students = new ArrayList<>();
+
+	@GetMapping("/students")
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	@PostMapping("/students")
+	public String addStudent(@RequestBody Student student) {
+		students.add(student);
+		return "Student added successfully";
+	}
+
+}
+        </code></pre>
       </div>
 
     </section>

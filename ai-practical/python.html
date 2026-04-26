@@ -60,17 +60,17 @@
             Copy
           </button>
         </div>
-        <pre><code id="code-py-1">def tower_of_hanoi(n, source, auxiliary, destination):
-    if n == 1:
-        print("Move disk 1 from", source, "to", destination)
+        <pre><code id="code-py-1">
+def tower_of_hanoi(n, source, auxiliary, destination):
+    if n==1:
+        print("Move disk 1 from",source,"to",destination)
         return
-    tower_of_hanoi(n-1, source, destination, auxiliary)
-    print("Move disk", n, "From", source, "to", destination)
-    tower_of_hanoi(n-1, auxiliary, source, destination)
-
-# Execution
-n = 3
-tower_of_hanoi(n, 'A', 'B', 'C')</code></pre>
+    tower_of_hanoi(n-1,source,destination,auxiliary)
+    print("Move disk",n,"From",source,"to",destination)
+    tower_of_hanoi(n-1,auxiliary,source,destination)
+n=3
+tower_of_hanoi(n,'A','B','C')
+        </code></pre>
       </div>
 
       <!-- Program 2 -->
@@ -87,21 +87,22 @@ tower_of_hanoi(n, 'A', 'B', 'C')</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-2">def chatbot():
+        <pre><code id="code-py-2">
+def chatbot():
     print("Chatbot: Hello! type bye to exit")
     while True:
-        user_input = input("You: ").lower()
-        if user_input == "hello":
+        user_input=input("You: ").lower()
+        if user_input=="hello":
             print("Chatbot: hi there.")
-        elif user_input == "whats your name":
-            print("Chatbot: I am simple AI chatbot.")
-        elif user_input == "bye":
+        elif user_input=="whats your name":
+            print("Chatbot: I am simple Ai chatbot.")
+        elif user_input=="bye":
             print("Chatbot: thank you see you again.")
             break
         else:
             print("Chatbot: Sorry cant understand you!")
-
-chatbot()</code></pre>
+chatbot()
+        </code></pre>
       </div>
 
       <!-- Program 3 -->
@@ -118,19 +119,33 @@ chatbot()</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-3">def dfs(graph, node, visited):
+        <pre><code id="code-py-3">
+# DFS using recursion
+
+def dfs(graph, node, visited):
     if node not in visited:
         print(node, end=" ")
         visited.add(node)
+
         for neighbour in graph[node]:
             dfs(graph, neighbour, visited)
 
+
+# Graph representation using dictionary
 graph = {
-    'A': ['B', 'C'], 'B': ['D', 'E'], 'C': ['F'],
-    'D': [], 'E': [], 'F': []
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
 }
+
 visited = set()
-dfs(graph, 'A', visited)</code></pre>
+
+# DFS traversal starting from node A
+dfs(graph, 'A', visited)
+        </code></pre>
       </div>
 
       <!-- Program 4 -->
@@ -147,21 +162,32 @@ dfs(graph, 'A', visited)</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-4">def bfs(graph, start):
-    visited, queue = [], [start]
+        <pre><code id="code-py-4">
+def bfs(graph, start):
+    visited = []
+    queue = [start]
+
     while queue:
         node = queue.pop(0)
         if node not in visited:
             print(node, end=" ")
             visited.append(node)
+
             for n in graph[node]:
                 queue.append(n)
 
+
 graph = {
-    'A': ['B', 'C'], 'B': ['D','E'], 'C': ['F'],
-    'D': [], 'E': [], 'F': []
+    'A': ['B', 'C'],
+    'B': ['D','E'],
+    'C': ['F'],
+    'D': [],
+    'E': [],
+    'F': []
 }
-bfs(graph, 'A')</code></pre>
+
+bfs(graph, 'A')
+        </code></pre>
       </div>
 
       <!-- Program 5 -->
@@ -178,15 +204,33 @@ bfs(graph, 'A')</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-5">A, B = 0, 0
-print("Initial:", A, B)
-A = 4 # Fill A
-B = 3; A = A - B # Pour to B
-B = 0 # Empty B
-B = A; A = 0 # Pour A to B
-A = 4 # Fill A
-A = A - (3 - B); B = 3 # Final move
-print("Final State:", A, B)</code></pre>
+        <pre><code id="code-py-5">
+A = 0
+B = 0
+
+print("Initial State:", A, B)
+
+A = 4
+print("Fill Jug A:", A, B)
+
+B = 3
+A = A - B
+print("Pour A to B:", A, B)
+
+B = 0
+print("Empty Jug B:", A, B)
+
+B = A
+A = 0
+print("Pour A to B:", A, B)
+
+A = 4
+print("Fill Jug A:", A, B)
+
+A = A - (3 - B)
+B = 3
+print("Final State:", A, B)
+        </code></pre>
       </div>
 
       <!-- Program 6 -->
@@ -203,24 +247,43 @@ print("Final State:", A, B)</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-6">from collections import deque
+        <pre><code id="code-py-6">
+from collections import deque
 
 def valid(m, c):
     return (m == 0 or m >= c) and (3-m == 0 or 3-m >= 3-c)
 
 def solve():
-    start, goal = (3, 3, 0), (0, 0, 1)
-    queue, visited = deque([start]), set()
+    start = (3, 3, 0)   # (Missionaries, Cannibals, Boat)
+    goal = (0, 0, 1)
+
+    queue = deque([start])
+    visited = set()
+
     while queue:
         m, c, b = queue.popleft()
-        if (m, c, b) == goal: return print("Goal Reached")
-        if (m, c, b) in visited: continue
+
+        if (m, c, b) == goal:
+            print("Goal Reached")
+            return
+
+        if (m, c, b) in visited:
+            continue
+
         visited.add((m, c, b))
+
         for dm, dc in [(1,0),(2,0),(0,1),(0,2),(1,1)]:
-            nm, nc, nb = (m-dm, c-dc, 1) if b == 0 else (m+dm, c+dc, 0)
+            if b == 0:
+                nm, nc, nb = m-dm, c-dc, 1
+            else:
+                nm, nc, nb = m+dm, c+dc, 0
+
             if 0 <= nm <= 3 and 0 <= nc <= 3 and valid(nm, nc):
                 queue.append((nm, nc, nb))
-solve()</code></pre>
+
+
+solve()
+        </code></pre>
       </div>
 
       <!-- Program 7 -->
@@ -237,30 +300,64 @@ solve()</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-7">board = [' ']*9
-def check_win(p):
-    w = [(0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6)]
-    return any(board[i]==board[j]==board[k]==p for i,j,k in w)
+        <pre><code id="code-py-7">
+# Simple Tic Tac Toe using state space search
+
+board = [' ']*9
+
+def print_board():
+    print(board[0], '|', board[1], '|', board[2])
+    print('--+---+--')
+    print(board[3], '|', board[4], '|', board[5])
+    print('--+---+--')
+    print(board[6], '|', board[7], '|', board[8])
+
+def check_win(player):
+    wins = [(0,1,2),(3,4,5),(6,7,8),
+            (0,3,6),(1,4,7),(2,5,8),
+            (0,4,8),(2,4,6)]
+    for w in wins:
+        if board[w[0]] == board[w[1]] == board[w[2]] == player:
+            return True
+    return False
 
 def minimax(is_ai):
-    if check_win('O'): return 1
-    if check_win('X'): return -1
-    if ' ' not in board: return 0
-    scores = []
+    if check_win('O'):
+        return 1
+    if check_win('X'):
+        return -1
+    if ' ' not in board:
+        return 0
+
+    best = -2 if is_ai else 2
     for i in range(9):
         if board[i] == ' ':
             board[i] = 'O' if is_ai else 'X'
-            scores.append(minimax(not is_ai))
+            score = minimax(not is_ai)
             board[i] = ' '
-    return max(scores) if is_ai else min(scores)
+            best = max(best, score) if is_ai else min(best, score)
+    return best
 
-# Simple AI Move Logic
-best_score, move = -2, -1
-for i in range(9):
-    if board[i] == ' ':
-        board[i] = 'O'; s = minimax(False); board[i] = ' '
-        if s > best_score: best_score, move = s, i
-board[move] = 'O'</code></pre>
+def best_move():
+    move = -1
+    best = -2
+    for i in range(9):
+        if board[i] == ' ':
+            board[i] = 'O'
+            score = minimax(False)
+            board[i] = ' '
+            if score > best:
+                best = score
+                move = i
+    board[move] = 'O'
+
+
+# Demo run
+print_board()
+best_move()
+print("\nAI Move:")
+print_board()
+        </code></pre>
       </div>
 
       <!-- Program 8 -->
@@ -277,25 +374,50 @@ board[move] = 'O'</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-8">def a_star(graph, h, start, goal):
+        <pre><code id="code-py-8">
+def a_star(graph, h, start, goal):
     open_list = [start]
-    g, parent = {start: 0}, {start: None}
+    g = {start: 0}
+    parent = {start: None}
+
     while open_list:
+        # Select node with minimum f = g + h
         current = min(open_list, key=lambda x: g[x] + h[x])
+
         if current == goal:
             path = []
-            while current: path.append(current); current = parent[current]
-            return print("Path:", path[::-1])
+            while current:
+                path.append(current)
+                current = parent[current]
+            print("Path:", path[::-1])
+            return
+
         open_list.remove(current)
+
         for neighbour, cost in graph[current]:
             new_g = g[current] + cost
+
             if neighbour not in g or new_g < g[neighbour]:
-                g[neighbour], parent[neighbour] = new_g, current
+                g[neighbour] = new_g
+                parent[neighbour] = current
                 open_list.append(neighbour)
 
-graph = {'A': [('B',1), ('C',3)], 'B': [('D',1)], 'C': [('F',5)], 'E': [('F',1)]}
+
+# Graph (node : [(neighbour, cost)])
+graph = {
+    'A': [('B',1), ('C',3)],
+    'B': [('D',1), ('E',4)],
+    'C': [('F',5)],
+    'D': [],
+    'E': [('F',1)],
+    'F': []
+}
+
+# Heuristic values
 h = {'A':7, 'B':6, 'C':4, 'D':3, 'E':1, 'F':0}
-a_star(graph, h, 'A', 'F')</code></pre>
+
+a_star(graph, h, 'A', 'F')
+        </code></pre>
       </div>
 
       <!-- Program 9 -->
@@ -312,18 +434,38 @@ a_star(graph, h, 'A', 'F')</code></pre>
             Copy
           </button>
         </div>
-        <pre><code id="code-py-9">import itertools
+        <pre><code id="code-py-9">
+import itertools
+
 def tsp(dist):
     cities = range(len(dist))
     min_cost = float('inf')
-    for path in itertools.permutations(cities):
-        cost = sum(dist[path[i]][path[i+1]] for i in range(len(path)-1))
-        cost += dist[path[-1]][path[0]]
-        if cost < min_cost: min_cost = cost; best_path = path
-    print("Path:", best_path, "Cost:", min_cost)
+    best_path = None
 
-dist = [[0,10,15,20], [10,0,35,25], [15,35,0,30], [20,25,30,0]]
-tsp(dist)</code></pre>
+    for path in itertools.permutations(cities):
+        cost = 0
+        for i in range(len(path) - 1):
+            cost += dist[path[i]][path[i+1]]
+        cost += dist[path[-1]][path[0]]   # return to start
+
+        if cost < min_cost:
+            min_cost = cost
+            best_path = path
+
+    print("Best Path:", best_path)
+    print("Minimum Cost:", min_cost)
+
+
+# Distance matrix
+dist = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+tsp(dist)
+        </code></pre>
       </div>
 
     </section>

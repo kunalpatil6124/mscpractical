@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,14 +9,17 @@
   <title>Angular Practicals | Student Hub</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet">
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Site stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
 </head>
+
 <body>
   <!-- Floating Header -->
   <header class="site-header reveal">
@@ -50,28 +54,31 @@
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
           </div>
-          <div class="program-title">1) Basic Component with Data Binding</div>
+          <div class="program-title">1) Write a program to print hello world using angular Js script.</div>
           <button class="copy-btn" data-copy-target="code-angular-1">
             <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
             Copy
           </button>
         </div>
         <pre><code id="code-angular-1">
+App.component.ts:
 import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-hello',
-  template: `
-    &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
-    &lt;input [(ngModel)]="name" placeholder="Enter name"&gt;
-  `,
-  styles: [`
-    h1 { font-family: Lato; }
-  `]
+import	{	enableDebugTools	}	from	'@angular/platform- browser';
+@Component({ selector: 'app-root',
+templateUrl: './app.component.html', styleUrls: ['./app.component.css']
 })
-export class HelloComponent {
-  name = 'Student';
+export class AppComponent { title = 'HelloWord';
 }
+
+App.component.html:
+<html>
+<head>
+<title>Display "Hello Word"</title>
+</head>
+<body >
+<h1>Hello World!</h1>
+</body> </html>
+
         </code></pre>
       </div>
 
@@ -83,38 +90,426 @@ export class HelloComponent {
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
           </div>
-          <div class="program-title">2) Reactive Form Implementation</div>
+          <div class="program-title">2) Write an angular Js Script to demonstrate arithmetic Expressions.</div>
           <button class="copy-btn" data-copy-target="code-angular-2">
             <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
             Copy
           </button>
         </div>
         <pre><code id="code-angular-2">
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-@Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html'
+App.component.ts:
+import { Component } from '@angular/core';
+import { enableDebugTools } from '@angular/platform- browser';
+@Component({ selector: 'app-root',
+templateUrl: './app.component.html', styleUrls: ['./app.component.css']
 })
-export class ContactComponent implements OnInit {
-  contactForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.contactForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(10)]]
-    });
-  }
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-    }
-  }
+export class AppComponent { title = 'HelloWord'; Firstno=25;
+Secondno=10;
 }
+
+App.component.html:
+<html>
+<body >
+<h1> Demonstrate Arithmatic expression</h1>
+<h2>Addition : {{Firstno+Secondno}}</h2>
+<h2>Substraction :{{Firstno-Secondno}}</h2>
+<h2>Multiplication :{{Firstno*Secondno}}</h2>
+ 
+<h2>Division :{{Firstno/Secondno}}</h2>
+<h2>ModuloDivision :{{Firstno%Secondno}}</h2>
+</body>
+</html>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 3 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">3) write an angular Js script to add modules and controller.</div>
+          <button class="copy-btn" data-copy-target="code-angular-3">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-3">
+App.component.html:
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"></script>
+<div ng-app="myApp" ng-controller="myCtrl">
+{{ firstName + " " + lastName }}
+</div>
+<script>
+  var app = angular.module("myApp", []); app.controller("myCtrl", function ($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+  });
+</script>
+</body>
+</html>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 4 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">4) Write an angular JS Script to print first name and last name using angular js
+            controller.</div>
+          <button class="copy-btn" data-copy-target="code-angular-4">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-4">
+app.component.html:
+<!DOCTYPE html>
+<html> <body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"> </script>
+<div ng-app="myApp" ng-controller="myCtrl">
+First Name: <input type="text" ng-model="firstName"><br> Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</div>
+<script>
+  var app = angular.module("myApp", []); app.controller("myCtrl", function ($scope) {
+    $scope.firstName = "Rohit";
+    $scope.lastName = "Shinde";
+  });
+</script>
+</body>
+</html>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 5 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">5) write an angular Js script to demonstrate to use of services.</div>
+          <button class="copy-btn" data-copy-target="code-angular-5">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-5">
+message.service.ts:
+import { Injectable } from '@angular/core'; @Injectable({
+providedIn: 'root'
+})
+export class MessageService {
+_message="Hello this an demo for services"; constructor() { }
+getmessage(){
+return this._message;
+}
+}
+
+app.component.ts:
+import { Component } from '@angular/core';
+import { enableDebugTools } from '@angular/platform- browser';
+import { MessageService } from './message.service'; @Component({
+selector: 'app-root',
+templateUrl: './app.component.html', styleUrls: ['./app.component.css']
+ 
+})
+export class AppComponent { title = 'SERVICES';
+_msg:string=" ";
+constructor(private _messageService:MessageService){
+}
+getmessage(){ this._msg=this._messageService.getmessage();
+}
+}
+
+app.component.html:
+<div style="text-align: center; color: turquoise;">
+<button (click)="getmessage()">GETMESSAGE</button><br/>
+Your Message: <b>{{_msg}}</b>
+</div>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 6 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">6) write an angular Js script to demonstrate to use of tables.</div>
+          <button class="copy-btn" data-copy-target="code-angular-6">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-6">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Angular JS Table</title>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular
+.min.js">
+</script>
+<style>
+table, th , td {
+border: 1px solid grey; border-collapse: collapse; padding: 5px;
+}
+table tr: nth-child(odd) { background-color: #f2f2f2;
+}
+
+table tr: nth-child(even) { background-color: #ffffff;
+}
+ 
+</style>
+</head>
+<body>
+<h2>AngularJS Sample Application</h2>
+<div ng-app = "mainApp" ng-controller = "studentController">
+<table border = "0">
+<tr>
+<td>Enter first name:</td>
+<td><input type = "text" ng-model = "student.firstName"></td>
+</tr>
+<tr>
+<td>Enter last name: </td>
+<td>
+<input type = "text" ng-model = "student.lastName">
+</td>
+</tr>
+<tr>
+<td>Name: </td>
+<td>{{student.fullName()}}</td>
+</tr>
+<tr>
+ 
+<td>Subject:</td>
+<td>
+<table>
+<tr>
+<th>Name</th>.
+<th>Marks</th>
+</tr>
+<tr ng-repeat = "subject in student.subjects">
+<td>{{ subject.name }}</td>
+<td>{{ subject.marks }}</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<script>
+  var mainApp = angular.module("mainApp", []); mainApp.controller('studentController', function ($scope) {
+    $scope.student = {
+      firstName: "Rahul", lastName: "Rai", fees: 500,
+
+      subjects: [
+        { name: 'Physics', marks: 850 },
+        { name: 'Chemistry', marks: 80 },
+        { name: 'Math', marks: 90 },
+        { name: 'English', marks: 80 },
+        { name: 'Hindi', marks: 70 }
+      ],
+      fullName: function () {
+        var studentObject;
+        studentObject = $scope.student;
+        return studentObject.firstName + " " + studentObject.lastName;
+      }
+    };
+  });
+</script> </body> </html>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 7 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">7) write an angular Js script to create select box using options</div>
+          <button class="copy-btn" data-copy-target="code-angular-7">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-7">
+<!DOCTYPE html>
+<html>
+<head>
+<title>AngularJS Select Box Example</title>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/ang ular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="SelectController">
+<h2>AngularJS Select Box Example</h2>
+<select ng-model="selectedOption">
+<option value="">Select an option</option>
+<option ng-repeat="option in options" value="{{ option.value }}">{{ option.label
+}}</option>
+</select>
+<p>You selected: {{ selectedOption }}</p>
+</div>
+<script>
+
+  var myApp = angular.module('myApp', []); myApp.controller('SelectController', function ($scope) {
+    $scope.options = [
+      { label: 'City', value: 'Dhule' },
+      { label: 'City 2', value: 'Jalgaon' },
+      { label: 'City 3', value: 'Nandurbar' },
+      { label: 'City 4', value: 'Sakri' }
+    ];
+    $scope.selectedOption = '';
+  });
+</script>
+</body>
+</html>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 8 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">8) Design a simple form using Angular Js Script </div>
+          <button class="copy-btn" data-copy-target="code-angular-8">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-8">
+app.component.ts:
+import { Component } from '@angular/core';
+import { enableDebugTools } from '@angular/platform- browser';
+import {FormControl,FormControlName,FormGroup} from '@angular/forms'
+@Component({ selector: 'app-root',
+templateUrl: './app.component.html', styleUrls: ['./app.component.css']
+})
+export class AppComponent { title = 'Work With Form'; LoginForm= new FormGroup({
+user:new FormControl('rohit@gmail.com'), password:new FormControl('123456')
+})
+loginUser(){ console.warn(this.LoginForm.value);
+}
+}
+ 
+app.module.ts:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform- browser';
+import { AppComponent } from './app.component'; import {ReactiveFormsModule} from '@angular/forms' @NgModule({
+declarations: [ AppComponent,
+],
+imports: [ BrowserModule, ReactiveFormsModule
+],
+providers: [],
+bootstrap: [AppComponent]
+})
+export class AppModule { }
+app.component.html:
+<h1>{{title}}</h1>
+<form [formGroup]="LoginForm" (ngSubmit)="loginUser">
+<input type="text"
+ 
+placeholder="UserName" name="user" formControlName="user">
+<br><br>
+<input type="password" placeholder="password" name="password" formControlName="password">
+<br><br>
+<button>LOGIN</button>
+</form>
+
+        </code></pre>
+      </div>
+
+      <!-- Program 9 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">9) Design a simple form and apply validation to it in angular js.</div>
+          <button class="copy-btn" data-copy-target="code-angular-9">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-9">
+app.module.ts:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform- browser';
+import { AppComponent } from './app.component'; import {ReactiveFormsModule} from '@angular/forms' @NgModule({
+declarations: [ AppComponent,
+],
+imports: [ BrowserModule, ReactiveFormsModule
+],
+providers: [],
+bootstrap: [AppComponent]
+})
+export class AppModule { }
+ 
+app.component.ts:
+import { Component } from '@angular/core';
+import { enableDebugTools } from '@angular/platform- browser';
+import {FormControl,FormControlName,FormGroup, Validators} from '@angular/forms'
+@Component({ selector: 'app-root',
+templateUrl: './app.component.html', styleUrls: ['./app.component.css']
+})
+export class AppComponent { title = 'Work With Form'; LoginForm= new FormGroup({
+ user:new FormControl('',[Validators.required,Validators.minLength(15)
+]),
+ password:new FormControl('',[Validators.required,Validators.minLength(6)]
+)
+})
+loginUser(){ console.warn(this.LoginForm.value);
+} }
+ 
+App.component.html:
+<h1>{{title}}</h1>
+<form [formGroup]="LoginForm" (ngSubmit)="loginUser">
+<input type="text" placeholder="UserName" name="user" formControlName="user">
+ <div class="text-danger"
+*ngIf="LoginForm.controls?.user?.touched">
+	<span
+*ngIf="LoginForm.controls?.user?.errors?.['required']">This is required</span>
+</div>
+<br><br>
+<input type="password" placeholder="password" name="password" formControlName="password">
+<div class="text-danger"
+*ngIf="LoginForm.controls?.password?.touched">
+	<span
+*ngIf="LoginForm.controls?.password?.errors?.['required']"> password will be must</span>
+</div>
+<br><br>
+<button>LOGIN</button>
+</form>
+
         </code></pre>
       </div>
     </section>
@@ -123,11 +518,13 @@ export class ContactComponent implements OnInit {
   <footer class="site-footer">
     <div class="container">
       <span class="footer-logo">MSCPRACTICAL</span>
-      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic
+        Excellence.</p>
     </div>
   </footer>
 
   <script src="../js/script.js"></script>
   <script>lucide.createIcons();</script>
 </body>
+
 </html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="repo-owner" content="kunalpatil6124" />
+
+  <title>Angular Practicals | Student Hub</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Site stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- Floating Header -->
+  <header class="site-header reveal">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <i data-lucide="shield-check"></i>
+        MSCPRACTICAL
+      </a>
+      <nav class="nav">
+        <a href="index.html">Angular Hub</a>
+        <a href="../ai-practical/index.html">AI Hub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="reveal" style="animation-delay: 0.1s">
+      <div class="hero">
+        <div class="badge">
+          <i data-lucide="code"></i>
+          Web Developer
+        </div>
+        <h1 class="section-title">Angular Repository</h1>
+        <p class="lead">Core Angular concepts, component lifecycle, and reactive forms implementation.</p>
+      </div>
+
+      <!-- Program 1 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">1) Basic Component with Data Binding</div>
+          <button class="copy-btn" data-copy-target="code-angular-1">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-1">
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-hello',
+  template: `
+    &lt;h1&gt;Hello {{ name }}!&lt;/h1&gt;
+    &lt;input [(ngModel)]="name" placeholder="Enter name"&gt;
+  `,
+  styles: [`
+    h1 { font-family: Lato; }
+  `]
+})
+export class HelloComponent {
+  name = 'Student';
+}
+        </code></pre>
+      </div>
+
+      <!-- Program 2 -->
+      <div class="code-card">
+        <div class="code-header">
+          <div class="window-controls">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="program-title">2) Reactive Form Implementation</div>
+          <button class="copy-btn" data-copy-target="code-angular-2">
+            <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            Copy
+          </button>
+        </div>
+        <pre><code id="code-angular-2">
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html'
+})
+export class ContactComponent implements OnInit {
+  contactForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.contactForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+    }
+  }
+}
+        </code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="footer-logo">MSCPRACTICAL</span>
+      <p>&copy; 2026 Developed by <strong style="color: var(--text-bright);">Kunal Patil</strong>. Built for Academic Excellence.</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

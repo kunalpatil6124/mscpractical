@@ -60,7 +60,7 @@
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-1">
+        <pre><code class="language-plaintext" id="code-angular-1">
 App.component.ts:
 import { Component } from '@angular/core';
 import	{	enableDebugTools	}	from	'@angular/platform- browser';
@@ -71,13 +71,13 @@ export class AppComponent { title = 'HelloWord';
 }
 
 App.component.html:
-<html>
-<head>
-<title>Display "Hello Word"</title>
-</head>
-<body >
-<h1>Hello World!</h1>
-</body> </html>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Display "Hello Word"&lt;/title&gt;
+&lt;/head&gt;
+&lt;body &gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt; &lt;/html&gt;
 
         </code></pre>
       </div>
@@ -96,7 +96,7 @@ App.component.html:
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-2">
+        <pre><code class="language-plaintext" id="code-angular-2">
 App.component.ts:
 import { Component } from '@angular/core';
 import { enableDebugTools } from '@angular/platform- browser';
@@ -108,17 +108,17 @@ Secondno=10;
 }
 
 App.component.html:
-<html>
-<body >
-<h1> Demonstrate Arithmatic expression</h1>
-<h2>Addition : {{Firstno+Secondno}}</h2>
-<h2>Substraction :{{Firstno-Secondno}}</h2>
-<h2>Multiplication :{{Firstno*Secondno}}</h2>
+&lt;html&gt;
+&lt;body &gt;
+&lt;h1&gt; Demonstrate Arithmatic expression&lt;/h1&gt;
+&lt;h2&gt;Addition : {{Firstno+Secondno}}&lt;/h2&gt;
+&lt;h2&gt;Substraction :{{Firstno-Secondno}}&lt;/h2&gt;
+&lt;h2&gt;Multiplication :{{Firstno*Secondno}}&lt;/h2&gt;
  
-<h2>Division :{{Firstno/Secondno}}</h2>
-<h2>ModuloDivision :{{Firstno%Secondno}}</h2>
-</body>
-</html>
+&lt;h2&gt;Division :{{Firstno/Secondno}}&lt;/h2&gt;
+&lt;h2&gt;ModuloDivision :{{Firstno%Secondno}}&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
         </code></pre>
       </div>
@@ -137,23 +137,23 @@ App.component.html:
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-3">
+        <pre><code class="language-plaintext" id="code-angular-3">
 App.component.html:
-<!DOCTYPE html>
-<html>
-<body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"></script>
-<div ng-app="myApp" ng-controller="myCtrl">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"&gt;&lt;/script&gt;
+&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
 {{ firstName + " " + lastName }}
-</div>
-<script>
+&lt;/div&gt;
+&lt;script&gt;
   var app = angular.module("myApp", []); app.controller("myCtrl", function ($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
   });
-</script>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
         </code></pre>
       </div>
@@ -173,24 +173,24 @@ App.component.html:
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-4">
+        <pre><code class="language-plaintext" id="code-angular-4">
 app.component.html:
-<!DOCTYPE html>
-<html> <body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"> </script>
-<div ng-app="myApp" ng-controller="myCtrl">
-First Name: <input type="text" ng-model="firstName"><br> Last Name: <input type="text" ng-model="lastName"><br>
-<br>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt; &lt;body&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/ang ular.min.js"&gt; &lt;/script&gt;
+&lt;div ng-app="myApp" ng-controller="myCtrl"&gt;
+First Name: &lt;input type="text" ng-model="firstName"&gt;&lt;br&gt; Last Name: &lt;input type="text" ng-model="lastName"&gt;&lt;br&gt;
+&lt;br&gt;
 Full Name: {{firstName + " " + lastName}}
-</div>
-<script>
+&lt;/div&gt;
+&lt;script&gt;
   var app = angular.module("myApp", []); app.controller("myCtrl", function ($scope) {
     $scope.firstName = "Rohit";
     $scope.lastName = "Shinde";
   });
-</script>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
         </code></pre>
       </div>
@@ -209,7 +209,7 @@ Full Name: {{firstName + " " + lastName}}
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-5">
+        <pre><code class="language-plaintext" id="code-angular-5">
 message.service.ts:
 import { Injectable } from '@angular/core'; @Injectable({
 providedIn: 'root'
@@ -238,10 +238,10 @@ getmessage(){ this._msg=this._messageService.getmessage();
 }
 
 app.component.html:
-<div style="text-align: center; color: turquoise;">
-<button (click)="getmessage()">GETMESSAGE</button><br/>
-Your Message: <b>{{_msg}}</b>
-</div>
+&lt;div style="text-align: center; color: turquoise;"&gt;
+&lt;button (click)="getmessage()"&gt;GETMESSAGE&lt;/button&gt;&lt;br/&gt;
+Your Message: &lt;b&gt;{{_msg}}&lt;/b&gt;
+&lt;/div&gt;
 
         </code></pre>
       </div>
@@ -260,15 +260,15 @@ Your Message: <b>{{_msg}}</b>
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-6">
-<!DOCTYPE html>
-<html>
-<head>
-<title>Angular JS Table</title>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular
-.min.js">
-</script>
-<style>
+        <pre><code class="language-plaintext" id="code-angular-6">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Angular JS Table&lt;/title&gt;
+&lt;script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular
+.min.js"&gt;
+&lt;/script&gt;
+&lt;style&gt;
 table, th , td {
 border: 1px solid grey; border-collapse: collapse; padding: 5px;
 }
@@ -278,45 +278,45 @@ table tr: nth-child(odd) { background-color: #f2f2f2;
 table tr: nth-child(even) { background-color: #ffffff;
 }
  
-</style>
-</head>
-<body>
-<h2>AngularJS Sample Application</h2>
-<div ng-app = "mainApp" ng-controller = "studentController">
-<table border = "0">
-<tr>
-<td>Enter first name:</td>
-<td><input type = "text" ng-model = "student.firstName"></td>
-</tr>
-<tr>
-<td>Enter last name: </td>
-<td>
-<input type = "text" ng-model = "student.lastName">
-</td>
-</tr>
-<tr>
-<td>Name: </td>
-<td>{{student.fullName()}}</td>
-</tr>
-<tr>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;AngularJS Sample Application&lt;/h2&gt;
+&lt;div ng-app = "mainApp" ng-controller = "studentController"&gt;
+&lt;table border = "0"&gt;
+&lt;tr&gt;
+&lt;td&gt;Enter first name:&lt;/td&gt;
+&lt;td&gt;&lt;input type = "text" ng-model = "student.firstName"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Enter last name: &lt;/td&gt;
+&lt;td&gt;
+&lt;input type = "text" ng-model = "student.lastName"&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Name: &lt;/td&gt;
+&lt;td&gt;{{student.fullName()}}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
  
-<td>Subject:</td>
-<td>
-<table>
-<tr>
-<th>Name</th>.
-<th>Marks</th>
-</tr>
-<tr ng-repeat = "subject in student.subjects">
-<td>{{ subject.name }}</td>
-<td>{{ subject.marks }}</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-</div>
-<script>
+&lt;td&gt;Subject:&lt;/td&gt;
+&lt;td&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;.
+&lt;th&gt;Marks&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr ng-repeat = "subject in student.subjects"&gt;
+&lt;td&gt;{{ subject.name }}&lt;/td&gt;
+&lt;td&gt;{{ subject.marks }}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;script&gt;
   var mainApp = angular.module("mainApp", []); mainApp.controller('studentController', function ($scope) {
     $scope.student = {
       firstName: "Rahul", lastName: "Rai", fees: 500,
@@ -335,7 +335,7 @@ table tr: nth-child(even) { background-color: #ffffff;
       }
     };
   });
-</script> </body> </html>
+&lt;/script&gt; &lt;/body&gt; &lt;/html&gt;
 
         </code></pre>
       </div>
@@ -354,25 +354,25 @@ table tr: nth-child(even) { background-color: #ffffff;
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-7">
-<!DOCTYPE html>
-<html>
-<head>
-<title>AngularJS Select Box Example</title>
-<script
-src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/ang ular.min.js"></script>
-</head>
-<body>
-<div ng-app="myApp" ng-controller="SelectController">
-<h2>AngularJS Select Box Example</h2>
-<select ng-model="selectedOption">
-<option value="">Select an option</option>
-<option ng-repeat="option in options" value="{{ option.value }}">{{ option.label
-}}</option>
-</select>
-<p>You selected: {{ selectedOption }}</p>
-</div>
-<script>
+        <pre><code class="language-plaintext" id="code-angular-7">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;AngularJS Select Box Example&lt;/title&gt;
+&lt;script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/ang ular.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div ng-app="myApp" ng-controller="SelectController"&gt;
+&lt;h2&gt;AngularJS Select Box Example&lt;/h2&gt;
+&lt;select ng-model="selectedOption"&gt;
+&lt;option value=""&gt;Select an option&lt;/option&gt;
+&lt;option ng-repeat="option in options" value="{{ option.value }}"&gt;{{ option.label
+}}&lt;/option&gt;
+&lt;/select&gt;
+&lt;p&gt;You selected: {{ selectedOption }}&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
 
   var myApp = angular.module('myApp', []); myApp.controller('SelectController', function ($scope) {
     $scope.options = [
@@ -383,9 +383,9 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/ang ular.min.js"></sc
     ];
     $scope.selectedOption = '';
   });
-</script>
-</body>
-</html>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
         </code></pre>
       </div>
@@ -404,7 +404,7 @@ src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/ang ular.min.js"></sc
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-8">
+        <pre><code class="language-plaintext" id="code-angular-8">
 app.component.ts:
 import { Component } from '@angular/core';
 import { enableDebugTools } from '@angular/platform- browser';
@@ -432,16 +432,16 @@ bootstrap: [AppComponent]
 })
 export class AppModule { }
 app.component.html:
-<h1>{{title}}</h1>
-<form [formGroup]="LoginForm" (ngSubmit)="loginUser">
-<input type="text"
+&lt;h1&gt;{{title}}&lt;/h1&gt;
+&lt;form [formGroup]="LoginForm" (ngSubmit)="loginUser"&gt;
+&lt;input type="text"
  
-placeholder="UserName" name="user" formControlName="user">
-<br><br>
-<input type="password" placeholder="password" name="password" formControlName="password">
-<br><br>
-<button>LOGIN</button>
-</form>
+placeholder="UserName" name="user" formControlName="user"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="password" placeholder="password" name="password" formControlName="password"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;button&gt;LOGIN&lt;/button&gt;
+&lt;/form&gt;
 
         </code></pre>
       </div>
@@ -460,7 +460,7 @@ placeholder="UserName" name="user" formControlName="user">
             Copy
           </button>
         </div>
-        <pre><code id="code-angular-9">
+        <pre><code class="language-plaintext" id="code-angular-9">
 app.module.ts:
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform- browser';
@@ -491,24 +491,24 @@ loginUser(){ console.warn(this.LoginForm.value);
 } }
  
 App.component.html:
-<h1>{{title}}</h1>
-<form [formGroup]="LoginForm" (ngSubmit)="loginUser">
-<input type="text" placeholder="UserName" name="user" formControlName="user">
- <div class="text-danger"
-*ngIf="LoginForm.controls?.user?.touched">
-	<span
-*ngIf="LoginForm.controls?.user?.errors?.['required']">This is required</span>
-</div>
-<br><br>
-<input type="password" placeholder="password" name="password" formControlName="password">
-<div class="text-danger"
-*ngIf="LoginForm.controls?.password?.touched">
-	<span
-*ngIf="LoginForm.controls?.password?.errors?.['required']"> password will be must</span>
-</div>
-<br><br>
-<button>LOGIN</button>
-</form>
+&lt;h1&gt;{{title}}&lt;/h1&gt;
+&lt;form [formGroup]="LoginForm" (ngSubmit)="loginUser"&gt;
+&lt;input type="text" placeholder="UserName" name="user" formControlName="user"&gt;
+ &lt;div class="text-danger"
+*ngIf="LoginForm.controls?.user?.touched"&gt;
+	&lt;span
+*ngIf="LoginForm.controls?.user?.errors?.['required']"&gt;This is required&lt;/span&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type="password" placeholder="password" name="password" formControlName="password"&gt;
+&lt;div class="text-danger"
+*ngIf="LoginForm.controls?.password?.touched"&gt;
+	&lt;span
+*ngIf="LoginForm.controls?.password?.errors?.['required']"&gt; password will be must&lt;/span&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;button&gt;LOGIN&lt;/button&gt;
+&lt;/form&gt;
 
         </code></pre>
       </div>
